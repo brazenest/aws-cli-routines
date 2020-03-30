@@ -1,0 +1,10 @@
+{
+  "name": "@aldeng/aws-cli-routines",
+  "version": "0.0.1",
+  "description": "A command-line tool for AWS CLI automation of predefined routines.",
+  "main": "dist/index.js",
+  "repository": "https://github.com/brazenest/aws-cli-routines",
+  "author": "Alden Gillespy <61519345+brazenest@users.noreply.github.com>",
+  "license": "CC-BY-NC-ND-4.0",
+  "private": true
+}
