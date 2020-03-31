@@ -7,6 +7,12 @@
   "author": "Alden Gillespy <61519345+brazenest@users.noreply.github.com>",
   "license": "CC-BY-NC-ND-4.0",
   "private": true,
+  "scripts": {
+    "all": "npm run build && npm run program",
+    "program": "node dist/index.js",
+    "build": "tsc",
+    "build-watch": "tsc --watch"
+  },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^2.25.0",
     "@typescript-eslint/parser": "^2.25.0",
