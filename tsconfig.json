@@ -3,6 +3,26 @@
         "module": "ES2020",
         "target": "ES2019",
         "rootDir": "src/",
-        "outDir": "dist/"
+        "outDir": "dist/",
+        "sourceMap": true,
+        "removeComments": true,
+        "strict": true,
+        "strictNullChecks": true,
+        "strictFunctionTypes": true,
+        "strictBindCallApply": true,
+        "strictPropertyInitialization": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "noFallthroughCasesInSwitch": true,
+        "importsNotUsedAsValues": "error",
+        "noEmitOnError": true,
+        "preserveConstEnums": true,
+        "forceConsistentCasingInFileNames": true
+    },
+    "include": [
+        "src/**/*.ts"
+    ],
+    "typeAcquisition": {
+        "enable": true
     }
 }
