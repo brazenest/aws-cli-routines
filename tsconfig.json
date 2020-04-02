@@ -17,7 +17,8 @@
         "importsNotUsedAsValues": "error",
         "noEmitOnError": true,
         "preserveConstEnums": true,
-        "forceConsistentCasingInFileNames": true
+        "forceConsistentCasingInFileNames": true,
+        "allowSyntheticDefaultImports": true
     },
     "include": [
         "src/**/*.ts"
