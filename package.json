@@ -7,6 +7,7 @@
   "author": "Alden Gillespy <61519345+brazenest@users.noreply.github.com>",
   "license": "CC-BY-NC-ND-4.0",
   "private": true,
+  "type": "module",
   "watch": {
     "program": {
       "patterns": [
