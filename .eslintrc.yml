@@ -13,6 +13,7 @@ parserOptions:
 plugins:
   - '@typescript-eslint'
 rules:
+  '@typescript-eslint/no-unused-vars': error
   import/no-unresolved:
     - error
     -
@@ -22,6 +23,7 @@ rules:
   linebreak-style:
     - warn
     - windows
+  no-unused-vars: off
   quotes:
     - error
     - single
