@@ -31,6 +31,7 @@ rules:
   linebreak-style:
     - warn
     - windows
+  lines-between-class-members: off
   no-unused-vars: off
   quotes:
     - error
