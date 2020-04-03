@@ -11,8 +11,10 @@
   "watch": {
     "program": {
       "patterns": [
-        "dist"
-      ]
+        "dist",
+        "config"
+      ],
+      "extensions": "js,yml"
     }
   },
   "scripts": {
