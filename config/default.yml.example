@@ -1,0 +1,11 @@
+config-groups:
+  - AWS
+  - IP_RESOLVER_SERVICE
+AWS:
+  ACCESS_KEY_ID: 
+  DEFAULT_OUTPUT: json
+  DEFAULT_REGION: 
+  SECRET_ACCESS_KEY: 
+  SECURITY_GROUP_ID: 
+IP_RESOLVER_SERVICE:
+  HREF: https://api.ipify.org
