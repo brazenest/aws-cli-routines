@@ -1,5 +1,6 @@
 import { runEc2Command } from './aws/ec2.js'
-import type { AwsEc2SecurityGroupId, AwsEc2DescribeSecurityGroupsResponse } from './types/aws/ec2.js'
+import type { AwsEc2SecurityGroupId, AwsEc2DescribeSecurityGroupsResponse, AwsEc2Command } from './types/aws/ec2.js'
+import type { CidrAddress } from './types/tcpip.js'
 
 export const retrieveSecurityGroupCidrAddresses = async (
   groupIds: AwsEc2SecurityGroupId[] = [],
