@@ -10,6 +10,7 @@ import type { CidrAddress, IpAddress } from './types/tcpip.js'
 import type { AwsEc2SecurityGroupId } from './types/aws/ec2.js'
 import type { AwsResponse } from './types/aws/common.js'
 import config from './config/index.js'
+import logger from './logging.js'
 
 const securityGroupId: AwsEc2SecurityGroupId = config.AWS_SECURITY_GROUP_ID as string
 
@@ -39,11 +40,11 @@ Promise.allSettled([
     const currentCidrAddress = `${currentIpAddress as IpAddress}/32` as CidrAddress
 
     return Promise.allSettled([
-        existingPolicyCidrAddresses.map((cidrAddress) => (
+      existingPolicyCidrAddresses.map((cidrAddress) => (
         revokeSecurityGroupPolicies(securityGroupId, cidrAddress)
       )),
       authorizeSecurityGroupPolicies(securityGroupId, currentCidrAddress),
     ].flat())
   })
-  .catch((error: ProgramFatalError) => console.error(error.message))
-  .catch((error: Error) => console.error(`A general error occurred:\n\n${error}`))
+  .catch((error: ProgramFatalError) => logger.error(error.message))
+  .catch((error: Error) => logger.error(`A general error occurred:\n\n${error}`))
