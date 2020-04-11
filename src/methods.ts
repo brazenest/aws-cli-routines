@@ -12,8 +12,12 @@ export const retrieveSecurityGroupCidrAddresses = async (
     ],
   )
   const group = response.SecurityGroups[0]
-  const ingresses = group.IpPermissions.map(({ IpRanges }) => IpRanges.map(({ CidrIp }) => CidrIp)).flat()
-  const egresses = group.IpPermissionsEgress.map(({ IpRanges }) => IpRanges.map(({ CidrIp }) => CidrIp)).flat()
+  const ingresses = group.IpPermissions.map(({ IpRanges }) => (
+    IpRanges.map(({ CidrIp }) => CidrIp)
+  )).flat()
+  const egresses = group.IpPermissionsEgress.map(({ IpRanges }) => (
+    IpRanges.map(({ CidrIp }) => CidrIp)
+  )).flat()
 
   const addresses = [
     ...ingresses,
