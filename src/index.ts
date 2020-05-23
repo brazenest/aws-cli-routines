@@ -11,12 +11,14 @@ import type { AwsEc2SecurityGroupId } from './types/aws/ec2.js'
 import type { AwsResponse } from './types/aws/common.js'
 import config from './config/index.js'
 import logger from './logging.js'
+import { getGithubIp } from './github/index.js'
 
 const securityGroupId: AwsEc2SecurityGroupId = config.AWS_SECURITY_GROUP_ID as string
 
 Promise.allSettled([
   retrieveSecurityGroupCidrAddresses([securityGroupId]),
   getCurrentPublicIp(),
+  getGithubIp(),
 ])
   .then((results) => {
     const failures = (
@@ -34,6 +36,7 @@ Promise.allSettled([
     const [
       { value: securityGroupResponseData },
       { value: currentIpAddress },
+      { value: currentGithubIpAddress },
     ] = results as PromiseResolution<AwsResponse | any>[]
 
     const existingPolicyCidrAddresses: CidrAddress[] = securityGroupResponseData
@@ -43,7 +46,12 @@ Promise.allSettled([
       existingPolicyCidrAddresses.map((cidrAddress) => (
         revokeSecurityGroupPolicies(securityGroupId, cidrAddress)
       )),
-      authorizeSecurityGroupPolicies(securityGroupId, currentCidrAddress),
+      [
+        currentCidrAddress,
+        currentGithubIpAddress,
+      ].map((cidrAddress) => (
+        authorizeSecurityGroupPolicies(securityGroupId, cidrAddress)
+      )),
     ].flat())
   })
   .catch((error: ProgramFatalError) => logger.error(error.message))
