@@ -2,7 +2,7 @@ import request from 'request-promise-native'
 import { GithubRequestError } from '../types/github/index.js'
 import config from '../config/index.js'
 
-export const getGithubIp = async () => {
+export const getGithubIpList = async () => {
   const { GITHUB_SERVICE_HREF, GITHUB_SERVICE_USERNAME } = config
   try {
     const response = await request({
@@ -12,7 +12,7 @@ export const getGithubIp = async () => {
       },
       json: true,
     })
-    return response.git[0]
+    return response.git
   } catch (error) {
     throw new GithubRequestError(`Failed to retrieve Github IP address. (${error.number} ${error.message})`)
   }
