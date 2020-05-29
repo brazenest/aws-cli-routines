@@ -42,17 +42,21 @@ Promise.allSettled([
     const existingPolicyCidrAddresses: CidrAddress[] = securityGroupResponseData
     const currentCidrAddress = `${currentIpAddress as IpAddress}/32` as CidrAddress
 
+    const revocations = existingPolicyCidrAddresses.map((cidrAddress) => (
+      revokeSecurityGroupPolicies(securityGroupId, cidrAddress)
+    ))
+    
+    const authorizations = [
+      currentCidrAddress,
+      ...currentGithubGitIpAddresses,
+    ].map((cidrAddress) => (
+      authorizeSecurityGroupPolicies(securityGroupId, cidrAddress)
+    ))
+
     return Promise.allSettled([
-      existingPolicyCidrAddresses.map((cidrAddress) => (
-        revokeSecurityGroupPolicies(securityGroupId, cidrAddress)
-      )),
-      [
-        currentCidrAddress,
-        ...currentGithubGitIpAddresses,
-      ].map((cidrAddress) => (
-        authorizeSecurityGroupPolicies(securityGroupId, cidrAddress)
-      )),
-    ].flat())
+      ...revocations,
+      ...authorizations,
+    ])
   })
   .catch((error: ProgramFatalError) => logger.error(error.message))
   .catch((error: Error) => logger.error(`A general error occurred:\n\n${error}`))
