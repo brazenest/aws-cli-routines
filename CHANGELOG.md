@@ -17,3 +17,7 @@ First major release.
 # v1.1.1 (2020-05-24)
 
 * Modifies Github IP retrieval method, to process the entire list of IPs instead of the first one exclusively.
+
+# v1.2.0 (2020-05-29)
+
+* Modified AWS statement execution routine so it operates in truly asynchonous fashion.
