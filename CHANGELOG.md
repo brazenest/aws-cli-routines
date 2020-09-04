@@ -21,3 +21,8 @@ First major release.
 # v1.2.0 (2020-05-29)
 
 * Modified AWS statement execution routine so it operates in truly asynchonous fashion.
+
+# v1.2.1 (2020-09-03)
+
+* Modifies environment variable character exclusion regex, as AWS secret key values may contain some non-alphanumeric characters.
+* Excludes Visual Studio Code project-level configuration files from consideration during commits, as such files are specific to the user's environmental preferences.

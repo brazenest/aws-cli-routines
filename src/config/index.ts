@@ -5,7 +5,7 @@ import type { ConfigGroup, ConfigSet, ConfigKey } from '../types/config.js'
 /*
 Constants */
 
-export const CONFIG_ENV_VAR_REGEX = /[^a-zA-Z0-9-]+/g
+export const CONFIG_ENV_VAR_REGEX = /[^a-zA-Z0-9-+/]+/g
 
 export const AWS_CLI_EXECUTABLE_NAME = 'aws'
 export const AWS_CLI_STATEMENT_TOKEN_DELIMITER = ' '
