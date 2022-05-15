@@ -26,3 +26,8 @@ First major release.
 
 * Modifies environment variable character exclusion regex, as AWS secret key values may contain some non-alphanumeric characters.
 * Excludes Visual Studio Code project-level configuration files from consideration during commits, as such files are specific to the user's environmental preferences.
+
+# v1.2.2 (2022-05-15)
+
+* Modifies `default.yml.example` config file, to reflect parameter
+requirements for GitHug API queries.
