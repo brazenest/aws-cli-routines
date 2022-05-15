@@ -1,7 +1,6 @@
 config-groups:
   - AWS
   - IP_RESOLVER_SERVICE
-  - GITHUB
 AWS:
   ACCESS_KEY_ID: 
   DEFAULT_OUTPUT: json
@@ -10,6 +9,3 @@ AWS:
   SECURITY_GROUP_ID: 
 IP_RESOLVER_SERVICE:
   HREF: https://api.ipify.org
-GITHUB:
-  SERVICE_HREF: https://api.github.com/meta
-  SERVICE_USERNAME: 
