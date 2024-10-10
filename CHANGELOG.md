@@ -31,3 +31,7 @@ First major release.
 
 * Modifies `default.yml.example` config file, to reflect parameter
 requirements for GitHug API queries.
+
+# v1.2.3 (2024-10-09)
+
+* Upgrades vulnerable packages, as reported by GitHub's dependabot.
